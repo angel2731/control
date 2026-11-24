@@ -7,7 +7,7 @@
 .controller.ds4.edit,
 .controller.edit.ds4,
 .edit .controller.ds4 {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=3") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=4") !important;
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: 806px 599px !important;
@@ -16,7 +16,7 @@
 
 /* Also catch the root controller when GPV places .edit on it. */
 .controller.edit {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=3") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=4") !important;
   background-repeat: no-repeat !important;
   background-position: center top !important;
   background-size: 806px 599px !important;
@@ -26,12 +26,12 @@
 .controller.ds4.edit .face,
 .controller.edit.ds4 .face,
 .edit .controller.ds4 .face {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg?rev=3") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg?rev=4") !important;
 }
 .controller.ds4.edit .stick,
 .controller.edit.ds4 .stick,
 .edit .controller.ds4 .stick {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg?rev=3") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg?rev=4") !important;
 }
 
 /* Signature yellow X on the touchpad. */
