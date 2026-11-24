@@ -1,90 +1,54 @@
 /*
- * PS4 ICE BLUE + YELLOW X — GamePad Viewer
- * Custom CSS skin draft for the GPV "Custom CSS URL" field.
- *
- * This stylesheet uses broad selectors so it can style common controller
- * elements. GPV's exact DOM/class names can vary by viewer version; if a
- * particular part does not change, the selectors must be matched to that
- * version's controller markup.
+ * PS4 ICE BLUE — GamePad Viewer EDIT skin
+ * IMPORTANT: Select "GPV Classic Skin" and enter this URL in the
+ * Settings > Edit CSS URL field (not the Custom Skin CSS field).
  */
 
-/* Transparent page/background */
-html, body { background: transparent !important; }
-
-/* Main controller shell / body */
-.controller, .gamepad, .gamepad-viewer,
-[class*="controller-body"], [class*="gamepad-body"], [class*="controller"] {
-  --ps4-shell: #8edbff;
-  --ps4-shell-light: #c8efff;
-  --ps4-blue: #168fe0;
-  --ps4-blue-pressed: #006bff;
-  --ps4-yellow: #ffd928;
-}
-
-/* Common body and shell shapes */
-.controller, .gamepad, [class*="controller-body"],
-[class*="gamepad-body"], [class*="shell"], [class*="body"] {
-  background-color: var(--ps4-shell, #8edbff) !important;
-  border-color: #4bb9ec !important;
-}
-
-/* Touchpad / central panel */
-.touchpad, [class*="touchpad"], [class*="trackpad"] {
-  background: linear-gradient(145deg, #d8f5ff, #a8e4ff) !important;
-  border: 2px solid #4bb9ec !important;
+/* Recolor the classic DualShock 4 body while preserving its built-in layout */
+.controller.ds4.edit {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20806%20599%22%3E%3Cpath%20d%3D%22M801.3%20418.6C798.4%20403.1%20783.6%20316.1%20769.3%20274C759.9%20246.3%20756.2%20221%20752.3%20209.1C740.3%20173.4%20719.3%20143.4%20719.3%20143.4C719.3%20143.4%20709.8%20130.3%20709.2%20127.1C708.6%20123.8%20704.5%20118.5%20704.5%20118.5C704.5%20118.5%20687.1%20112.8%20642.2%20112.8C597.3%20112.8%20588.5%20117.8%20588.5%20117.8C588.5%20117.8%20586.1%20120.7%20582.6%20122.6C579.1%20124.4%20570.9%20124.3%20570.9%20124.3H537.5C537.5%20124.3%20536.9%20124.2%20536.6%20124.6C536.2%20125%20536%20126.6%20536%20126.6H403H269.9C269.9%20126.6%20269.6%20124.9%20269.3%20124.6C268.9%20124.2%20268.4%20124.3%20268.4%20124.3H235C235%20124.3%20226.8%20124.5%20223.3%20122.6C219.8%20120.8%20217.4%20117.8%20217.4%20117.8C217.4%20117.8%20208.6%20112.8%20163.7%20112.8C118.9%20112.8%20101.4%20118.5%20101.4%20118.5C101.4%20118.5%2097.3%20123.8%2096.7%20127.1C96.1%20130.4%2086.6%20143.4%2086.6%20143.4C86.6%20143.4%2065.6%20173.4%2053.6%20209.1C49.6%20221%2045.9%20246.3%2036.6%20274C22.3%20316.1%207.5%20403.1%204.6%20418.6C0.3%20441.8%200%20508.8%200%20508.8C0%20508.8%204.5%20562.2%2036.2%20583.7C67.9%20605.2%2092.9%20597.7%2092.9%20597.7C92.9%20597.7%20126%20589.5%20150.7%20555.8C175.4%20522.1%20207.3%20426.6%20207.3%20426.6C207.3%20426.6%20209.5%20423.6%20213%20421.3C216.5%20419%20219.3%20418.7%20219.3%20418.7L403%20418.8L586.7%20418.7C586.7%20418.7%20589.5%20419%20593%20421.3C596.5%20423.6%20598.7%20426.6%20598.7%20426.6C598.7%20426.6%20630.6%20522%20655.3%20555.8C680%20589.6%20713.1%20597.7%20713.1%20597.7C713.1%20597.7%20738.1%20605.2%20769.8%20583.7C801.5%20562.2%20806%20508.8%20806%20508.8C806%20508.8%20805.7%20441.8%20801.3%20418.6Z%22%20fill%3D%22%238EDBFF%22%2F%3E%3C%2Fsvg%3E") !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
   position: relative;
 }
 
-/* Yellow X centered on the touchpad */
-.touchpad::after, [class*="touchpad"]::after, [class*="trackpad"]::after {
+/* Yellow X on the central touchpad area */
+.controller.ds4.edit::after {
   content: "✕";
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 34%;
   transform: translate(-50%, -50%);
-  color: var(--ps4-yellow, #ffd928) !important;
-  font-family: Arial, sans-serif;
-  font-size: clamp(24px, 4vw, 48px);
-  line-height: 1;
-  font-weight: 900;
-  text-shadow: 0 1px 2px #b18b00, 0 0 8px #ffe66b;
+  color: #FFD928 !important;
+  font: 900 58px/1 Arial, sans-serif;
+  text-shadow: 0 0 5px #D5A900, 0 0 12px rgba(255,217,40,.8);
   pointer-events: none;
+  z-index: 20;
 }
 
-/* Button transitions */
-button, .button, .face, .dpad, .dpad > *, .bumper, .trigger,
-.trigger-button, [class*="button"], [class*="bumper"],
-[class*="trigger"], [class*="dpad"] {
-  transition: background-color 90ms ease, box-shadow 90ms ease, filter 90ms ease;
+/* Cool blue default controls */
+.controller.ds4.edit .button,
+.controller.ds4.edit .face,
+.controller.ds4.edit .bumper,
+.controller.ds4.edit .trigger,
+.controller.ds4.edit .back,
+.controller.ds4.edit .start {
+  transition: filter .1s ease, box-shadow .1s ease;
 }
 
-/* Default button color */
-.button, .face, .bumper, .trigger, .trigger-button, .dpad > *,
-[class*="button"], [class*="bumper"], [class*="trigger"], [class*="dpad"] {
-  background-color: #55bdf0 !important;
-  border-color: #d9f5ff !important;
-  color: #073d62 !important;
+/* Blue glow when a control is pressed */
+.controller.ds4.edit .button.pressed,
+.controller.ds4.edit .face.pressed,
+.controller.ds4.edit .bumper.pressed,
+.controller.ds4.edit .trigger.pressed,
+.controller.ds4.edit .back.pressed,
+.controller.ds4.edit .start.pressed,
+.controller.ds4.edit .stick.pressed {
+  filter: brightness(1.45) saturate(1.7) hue-rotate(145deg) !important;
+  box-shadow: 0 0 12px rgba(0,120,255,.95) !important;
 }
 
-/* Pressed state — bright blue */
-.pressed, .button.pressed, .face.pressed, .bumper.pressed,
-.trigger.pressed, .trigger-button.pressed, .dpad .pressed, [class*="pressed"] {
-  background-color: var(--ps4-blue-pressed, #006bff) !important;
-  border-color: #dff7ff !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 10px rgba(0, 125, 255, .9) !important;
-  filter: brightness(1.08);
+/* Touchpad press feedback */
+.controller.ds4.edit .meta.pressed {
+  filter: brightness(1.5) saturate(1.6) hue-rotate(145deg) !important;
 }
-
-/* Analog sticks */
-.stick, [class*="stick"] {
-  background-color: #238fc9 !important;
-  border-color: #c8efff !important;
-}
-.stick.pressed, [class*="stick"].pressed {
-  background-color: #006bff !important;
-  box-shadow: 0 0 10px rgba(0, 125, 255, .9) !important;
-}
-
-/* Keep overlay clean */
-svg { overflow: visible; }
