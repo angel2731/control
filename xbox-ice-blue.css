@@ -1,0 +1,55 @@
+/*
+ * XBOX ONE / GPV 2 BETA — ICE BLUE SHELL
+ * Keeps the original Xbox artwork and controls; colors only the shell.
+ */
+
+/* Controller root: preserve original size and layout */
+.controller.xbox {
+  position: relative !important;
+  isolation: isolate;
+}
+
+/* Blue overlay follows the transparent silhouette of the original Xbox base */
+.controller.xbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #70D5FF;
+  opacity: .92;
+  -webkit-mask-image: url("https://gamepadviewer.com/xbox-assets/base.svg");
+  mask-image: url("https://gamepadviewer.com/xbox-assets/base.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  mix-blend-mode: screen;
+}
+
+/* Keep all live controls above the shell tint */
+.controller.xbox > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Blue glow while Xbox buttons are pressed */
+.controller.xbox .button.pressed,
+.controller.xbox .bumper.pressed,
+.controller.xbox .trigger.pressed,
+.controller.xbox .face.pressed,
+.controller.xbox .stick.pressed,
+.controller.xbox .back.pressed,
+.controller.xbox .start.pressed {
+  filter: brightness(1.35) saturate(1.4) !important;
+  box-shadow: 0 0 10px rgba(0, 145, 255, .95) !important;
+}
+
+/* Preserve the standard ABXY colors and original dark controls */
+.controller.xbox .button,
+.controller.xbox .stick,
+.controller.xbox .face {
+  mix-blend-mode: normal;
+}
