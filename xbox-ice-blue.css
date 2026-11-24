@@ -1,15 +1,14 @@
 /*
- * XBOX ONE / GPV 2 BETA — ICE BLUE SHELL
- * Keeps the original Xbox artwork and controls; colors only the shell.
+ * XBOX ICE BLUE — GPV / Gamepad Viewer
+ * Colors only the controller shell. Original controls and artwork remain intact.
  */
-
-/* Controller root: preserve original size and layout */
 .controller.xbox {
   position: relative !important;
   isolation: isolate;
 }
 
-/* Blue overlay follows the transparent silhouette of the original Xbox base */
+/* Use the actual extracted Xbox shell silhouette as the mask.
+   This prevents the color layer from covering half the canvas. */
 .controller.xbox::before {
   content: "";
   position: absolute;
@@ -17,25 +16,18 @@
   z-index: 0;
   pointer-events: none;
   background: #70D5FF;
-  opacity: .92;
-  -webkit-mask-image: url("https://gamepadviewer.com/xbox-assets/base.svg");
-  mask-image: url("https://gamepadviewer.com/xbox-assets/base.svg");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  mix-blend-mode: screen;
+  opacity: .98;
+  -webkit-mask: url("https://raw.githubusercontent.com/mac-ttv/mac-ttv.github.io/main/xboxbase/base-white-extract.png") center / 100% 100% no-repeat;
+  mask: url("https://raw.githubusercontent.com/mac-ttv/mac-ttv.github.io/main/xboxbase/base-white-extract.png") center / 100% 100% no-repeat;
 }
 
-/* Keep all live controls above the shell tint */
+/* Keep the live controls above the colored shell. */
 .controller.xbox > * {
-  position: relative;
   z-index: 1;
 }
 
-/* Blue glow while Xbox buttons are pressed */
+/* Preserve original Xbox ABXY colors, sticks and D-pad.
+   Add a blue glow only to active controls. */
 .controller.xbox .button.pressed,
 .controller.xbox .bumper.pressed,
 .controller.xbox .trigger.pressed,
@@ -43,13 +35,7 @@
 .controller.xbox .stick.pressed,
 .controller.xbox .back.pressed,
 .controller.xbox .start.pressed {
-  filter: brightness(1.35) saturate(1.4) !important;
-  box-shadow: 0 0 10px rgba(0, 145, 255, .95) !important;
-}
-
-/* Preserve the standard ABXY colors and original dark controls */
-.controller.xbox .button,
-.controller.xbox .stick,
-.controller.xbox .face {
-  mix-blend-mode: normal;
+  filter: brightness(1.35) saturate(1.35) !important;
+  box-shadow: 0 0 0 2px rgba(100,205,255,.95),
+              0 0 13px rgba(0,145,255,.95) !important;
 }
