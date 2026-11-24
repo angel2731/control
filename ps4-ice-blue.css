@@ -1,0 +1,90 @@
+/*
+ * PS4 ICE BLUE + YELLOW X — GamePad Viewer
+ * Custom CSS skin draft for the GPV "Custom CSS URL" field.
+ *
+ * This stylesheet uses broad selectors so it can style common controller
+ * elements. GPV's exact DOM/class names can vary by viewer version; if a
+ * particular part does not change, the selectors must be matched to that
+ * version's controller markup.
+ */
+
+/* Transparent page/background */
+html, body { background: transparent !important; }
+
+/* Main controller shell / body */
+.controller, .gamepad, .gamepad-viewer,
+[class*="controller-body"], [class*="gamepad-body"], [class*="controller"] {
+  --ps4-shell: #8edbff;
+  --ps4-shell-light: #c8efff;
+  --ps4-blue: #168fe0;
+  --ps4-blue-pressed: #006bff;
+  --ps4-yellow: #ffd928;
+}
+
+/* Common body and shell shapes */
+.controller, .gamepad, [class*="controller-body"],
+[class*="gamepad-body"], [class*="shell"], [class*="body"] {
+  background-color: var(--ps4-shell, #8edbff) !important;
+  border-color: #4bb9ec !important;
+}
+
+/* Touchpad / central panel */
+.touchpad, [class*="touchpad"], [class*="trackpad"] {
+  background: linear-gradient(145deg, #d8f5ff, #a8e4ff) !important;
+  border: 2px solid #4bb9ec !important;
+  position: relative;
+}
+
+/* Yellow X centered on the touchpad */
+.touchpad::after, [class*="touchpad"]::after, [class*="trackpad"]::after {
+  content: "✕";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--ps4-yellow, #ffd928) !important;
+  font-family: Arial, sans-serif;
+  font-size: clamp(24px, 4vw, 48px);
+  line-height: 1;
+  font-weight: 900;
+  text-shadow: 0 1px 2px #b18b00, 0 0 8px #ffe66b;
+  pointer-events: none;
+}
+
+/* Button transitions */
+button, .button, .face, .dpad, .dpad > *, .bumper, .trigger,
+.trigger-button, [class*="button"], [class*="bumper"],
+[class*="trigger"], [class*="dpad"] {
+  transition: background-color 90ms ease, box-shadow 90ms ease, filter 90ms ease;
+}
+
+/* Default button color */
+.button, .face, .bumper, .trigger, .trigger-button, .dpad > *,
+[class*="button"], [class*="bumper"], [class*="trigger"], [class*="dpad"] {
+  background-color: #55bdf0 !important;
+  border-color: #d9f5ff !important;
+  color: #073d62 !important;
+}
+
+/* Pressed state — bright blue */
+.pressed, .button.pressed, .face.pressed, .bumper.pressed,
+.trigger.pressed, .trigger-button.pressed, .dpad .pressed, [class*="pressed"] {
+  background-color: var(--ps4-blue-pressed, #006bff) !important;
+  border-color: #dff7ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(0, 125, 255, .9) !important;
+  filter: brightness(1.08);
+}
+
+/* Analog sticks */
+.stick, [class*="stick"] {
+  background-color: #238fc9 !important;
+  border-color: #c8efff !important;
+}
+.stick.pressed, [class*="stick"].pressed {
+  background-color: #006bff !important;
+  box-shadow: 0 0 10px rgba(0, 125, 255, .9) !important;
+}
+
+/* Keep overlay clean */
+svg { overflow: visible; }
