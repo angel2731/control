@@ -1,41 +1,43 @@
 /*
- * XBOX ICE BLUE — GPV / Gamepad Viewer
- * Colors only the controller shell. Original controls and artwork remain intact.
+ * XBOX ICE BLUE — GPV custom edit CSS
+ * Original Xbox artwork, with only the controller shell recolored.
  */
 .controller.xbox {
-  position: relative !important;
-  isolation: isolate;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/xbox/graphics/base.svg?rev=3") !important;
 }
 
-/* Use the actual extracted Xbox shell silhouette as the mask.
-   This prevents the color layer from covering half the canvas. */
-.controller.xbox::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: #70D5FF;
-  opacity: .98;
-  -webkit-mask: url("https://raw.githubusercontent.com/mac-ttv/mac-ttv.github.io/main/xboxbase/base-white-extract.png") center / 100% 100% no-repeat;
-  mask: url("https://raw.githubusercontent.com/mac-ttv/mac-ttv.github.io/main/xboxbase/base-white-extract.png") center / 100% 100% no-repeat;
+/* Keep the original Xbox ABXY, d-pad, triggers and bumpers artwork. */
+.controller.xbox .button {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/abxy.svg") !important;
+}
+.controller.xbox .back,
+.controller.xbox .start {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/start-select.svg") !important;
+}
+.controller.xbox .trigger {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/trigger.svg") !important;
+}
+.controller.xbox .face {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/dpad.svg") !important;
+}
+.controller.xbox .stick {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/stick.svg") !important;
+}
+.controller.xbox .bumper {
+  background-image: url("https://raw.githubusercontent.com/InsidiMarch/gamepad-viewer-skins/main/xbox-one/graphics/bumper.svg") !important;
+}
+.controller.xbox .quadrant {
+  background-image: none !important;
 }
 
-/* Keep the live controls above the colored shell. */
-.controller.xbox > * {
-  z-index: 1;
-}
-
-/* Preserve original Xbox ABXY colors, sticks and D-pad.
-   Add a blue glow only to active controls. */
+/* Blue illumination only while a button is pressed. */
 .controller.xbox .button.pressed,
-.controller.xbox .bumper.pressed,
-.controller.xbox .trigger.pressed,
 .controller.xbox .face.pressed,
-.controller.xbox .stick.pressed,
+.controller.xbox .trigger.pressed,
+.controller.xbox .bumper.pressed,
 .controller.xbox .back.pressed,
-.controller.xbox .start.pressed {
-  filter: brightness(1.35) saturate(1.35) !important;
-  box-shadow: 0 0 0 2px rgba(100,205,255,.95),
-              0 0 13px rgba(0,145,255,.95) !important;
+.controller.xbox .start.pressed,
+.controller.xbox .stick.pressed {
+  filter: brightness(1.45) saturate(1.45) !important;
+  box-shadow: 0 0 0 2px rgba(105,205,255,.95), 0 0 14px rgba(0,140,255,.95) !important;
 }
