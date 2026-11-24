@@ -1,48 +1,57 @@
-/* PS4 ICE BLUE skin for GamePad Viewer (Classic Skin: PlayStation 4 / DS4) */
+/* ANGEL — PS4 ICE BLUE | GamePad Viewer Classic DS4 */
 .controller.ds4 {
-  position: relative !important;
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?v=20261124b") !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
+  position: relative !important;
 }
+
+/* Correct artwork for every DualShock 4 component */
 .controller.ds4 .trigger {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/triggers.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/triggers.svg?v=20261124b") !important;
 }
 .controller.ds4 .bumper {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/bumper.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/bumper.svg?v=20261124b") !important;
 }
 .controller.ds4 .back,
 .controller.ds4 .start {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/start.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/start.svg?v=20261124b") !important;
 }
 .controller.ds4 .button {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/face.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/face.svg?v=20261124b") !important;
 }
 .controller.ds4 .stick {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg?v=20261124b") !important;
 }
 .controller.ds4 .face {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg?v=20261124b") !important;
 }
 .controller.ds4 .meta {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/meta.svg") !important;
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/meta.svg?v=20261124b") !important;
 }
 
-/* Yellow X on the central touchpad area */
+/* Premium ice-blue glass finish over the touchpad */
+.controller.ds4 .touchpad {
+  background: linear-gradient(145deg, rgba(218,247,255,.96), rgba(133,215,255,.96)) !important;
+  border: 2px solid #42b9f3 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 4px 18px rgba(0,145,220,.18) !important;
+}
+
+/* Signature yellow X */
 .controller.ds4::after {
   content: "✕";
   position: absolute;
   left: 50%;
   top: 33.5%;
   transform: translate(-50%, -50%);
-  color: #FFD928;
-  font: 900 52px/1 Arial, sans-serif;
-  text-shadow: 0 0 5px #C99D00, 0 0 12px rgba(255,217,40,.8);
+  color: #FFD928 !important;
+  font: 900 54px/1 Arial, sans-serif;
+  text-shadow: 0 2px 0 #b88600, 0 0 8px rgba(255,217,40,.75);
   pointer-events: none;
-  z-index: 50;
+  z-index: 99;
 }
 
-/* Bright blue feedback while buttons are pressed */
+/* Blue feedback only while a control is pressed */
 .controller.ds4 .button.pressed,
 .controller.ds4 .face.pressed,
 .controller.ds4 .trigger.pressed,
@@ -51,6 +60,11 @@
 .controller.ds4 .back.pressed,
 .controller.ds4 .start.pressed,
 .controller.ds4 .meta.pressed {
-  filter: hue-rotate(155deg) saturate(1.8) brightness(1.2) !important;
-  box-shadow: 0 0 12px rgba(0,120,255,.9) !important;
+  filter: hue-rotate(155deg) saturate(2) brightness(1.25) !important;
+  box-shadow: 0 0 0 2px rgba(68,190,255,.85), 0 0 15px rgba(0,132,255,.9) !important;
+}
+
+/* Keep the controller crisp and remove accidental outlines */
+.controller.ds4 * {
+  -webkit-tap-highlight-color: transparent;
 }
