@@ -1,70 +1,77 @@
-/* ANGEL — PS4 ICE BLUE | GamePad Viewer Classic DS4 */
-.controller.ds4 {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?v=20261124b") !important;
+/*
+  PS4 ICE BLUE — GamePad Viewer DS4 EDIT CSS
+  Targets the actual .edit class used by the GPV editcss= parameter.
+*/
+
+/* The editcss parameter adds .edit to the controller element. */
+.controller.ds4.edit,
+.controller.edit.ds4,
+.edit .controller.ds4 {
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=3") !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
-  position: relative !important;
+  background-position: center top !important;
+  background-size: 806px 599px !important;
+  background-color: transparent !important;
 }
 
-/* Correct artwork for every DualShock 4 component */
-.controller.ds4 .trigger {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/triggers.svg?v=20261124b") !important;
-}
-.controller.ds4 .bumper {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/bumper.svg?v=20261124b") !important;
-}
-.controller.ds4 .back,
-.controller.ds4 .start {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/start.svg?v=20261124b") !important;
-}
-.controller.ds4 .button {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/face.svg?v=20261124b") !important;
-}
-.controller.ds4 .stick {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg?v=20261124b") !important;
-}
-.controller.ds4 .face {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg?v=20261124b") !important;
-}
-.controller.ds4 .meta {
-  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/meta.svg?v=20261124b") !important;
+/* Also catch the root controller when GPV places .edit on it. */
+.controller.edit {
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/base.svg?rev=3") !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-size: 806px 599px !important;
 }
 
-/* Premium ice-blue glass finish over the touchpad */
-.controller.ds4 .touchpad {
-  background: linear-gradient(145deg, rgba(218,247,255,.96), rgba(133,215,255,.96)) !important;
-  border: 2px solid #42b9f3 !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 4px 18px rgba(0,145,220,.18) !important;
+/* Re-apply the blue component artwork to the DS4's actual child elements. */
+.controller.ds4.edit .face,
+.controller.edit.ds4 .face,
+.edit .controller.ds4 .face {
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/dpad.svg?rev=3") !important;
+}
+.controller.ds4.edit .stick,
+.controller.edit.ds4 .stick,
+.edit .controller.ds4 .stick {
+  background-image: url("https://raw.githubusercontent.com/angel2731/control/main/ps4/graphics/sticks.svg?rev=3") !important;
 }
 
-/* Signature yellow X */
-.controller.ds4::after {
-  content: "✕";
-  position: absolute;
-  left: 50%;
-  top: 33.5%;
-  transform: translate(-50%, -50%);
+/* Signature yellow X on the touchpad. */
+.controller.ds4.edit::after,
+.controller.edit.ds4::after,
+.edit .controller.ds4::after {
+  content: "✕" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 33.5% !important;
+  transform: translate(-50%, -50%) !important;
   color: #FFD928 !important;
-  font: 900 54px/1 Arial, sans-serif;
-  text-shadow: 0 2px 0 #b88600, 0 0 8px rgba(255,217,40,.75);
-  pointer-events: none;
-  z-index: 99;
+  font: 900 54px/1 Arial, sans-serif !important;
+  text-shadow: 0 2px 0 #B88600, 0 0 9px rgba(255,217,40,.85) !important;
+  pointer-events: none !important;
+  z-index: 99 !important;
 }
 
-/* Blue feedback only while a control is pressed */
-.controller.ds4 .button.pressed,
-.controller.ds4 .face.pressed,
-.controller.ds4 .trigger.pressed,
-.controller.ds4 .bumper.pressed,
-.controller.ds4 .stick.pressed,
-.controller.ds4 .back.pressed,
-.controller.ds4 .start.pressed,
-.controller.ds4 .meta.pressed {
+/* Blue press feedback, keeping the PS button symbols visible. */
+.controller.ds4.edit .button.pressed,
+.controller.ds4.edit .face.pressed,
+.controller.ds4.edit .trigger.pressed,
+.controller.ds4.edit .bumper.pressed,
+.controller.ds4.edit .stick.pressed,
+.controller.ds4.edit .back.pressed,
+.controller.ds4.edit .start.pressed,
+.controller.edit .button.pressed,
+.controller.edit .face.pressed,
+.controller.edit .trigger.pressed,
+.controller.edit .bumper.pressed,
+.controller.edit .stick.pressed,
+.controller.edit .back.pressed,
+.controller.edit .start.pressed,
+.edit .controller.ds4 .button.pressed,
+.edit .controller.ds4 .face.pressed,
+.edit .controller.ds4 .trigger.pressed,
+.edit .controller.ds4 .bumper.pressed,
+.edit .controller.ds4 .stick.pressed,
+.edit .controller.ds4 .back.pressed,
+.edit .controller.ds4 .start.pressed {
   filter: hue-rotate(155deg) saturate(2) brightness(1.25) !important;
-  box-shadow: 0 0 0 2px rgba(68,190,255,.85), 0 0 15px rgba(0,132,255,.9) !important;
-}
-
-/* Keep the controller crisp and remove accidental outlines */
-.controller.ds4 * {
-  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 0 0 2px rgba(68,190,255,.9), 0 0 14px rgba(0,132,255,.95) !important;
 }
